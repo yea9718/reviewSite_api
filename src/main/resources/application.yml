@@ -1,0 +1,63 @@
+# 서버기본설정 시작
+server:
+  # https
+  port: 8090
+  tomcat:
+    basedir: target/tomcat
+  shutdown: graceful
+  error:
+    whitelabel:
+      enabled: false
+logging:
+  file:
+    path: ${server.tomcat.basedir}/logs
+    name: ${server.tomcat.basedir}/logs/${spring.application.name}.log
+  level:
+    root: warn
+    com.kp: debug
+    org.springframework: warn
+    org.springframework.transaction.interceptor: trace
+    #org.springframework.security: warn
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+spring:
+  config:
+    use-legacy-processing: true
+  profiles:
+    active: prod
+  application:
+    name: gansul-api
+  lifecycle:
+    timeout-per-shutdown-phase: 3s
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
+    #datasource:
+    #driver-class-name: com.mysql.cj.jdbc.Driver
+    #url: jdbc:mysql://localhost:3306/sanhacrm?useSSL=false&serverTimezone=Asia/Seoul&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    #username: root
+    #password: dalli79!@#456
+  servlet:
+    multipart:
+      maxFileSize: 100MB
+      maxRequestSize: 100MB
+
+--- #local 환경
+spring:
+  profiles: local
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    # encrypt 속성이 true 로 설정되고 trustServerCertificate 속성이 true 로 설정되어 있는 경우 SQL Server용 Microsoft JDBC Driver는 SQL Server TLS 인증서의 유효성을 검사하지 않습니다.
+    url: jdbc:sqlserver://localhost:1433;database=gansul;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: 1234
+host:
+  url: http://localhost:8090/
+  sender_mail: sa0408@kmac.co.kr
+fileupload:
+  path: /Users/dalli/upload_files/kidslala/
+  url: http://localhost:8080/file/
