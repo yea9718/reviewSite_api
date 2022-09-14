@@ -19,7 +19,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "liked")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Liked extends BasicEntity {
+public class Liked {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

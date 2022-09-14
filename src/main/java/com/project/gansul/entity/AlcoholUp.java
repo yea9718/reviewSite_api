@@ -19,7 +19,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "alcohol_up")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class AlcoholUp extends BasicEntity {
+public class AlcoholUp {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
