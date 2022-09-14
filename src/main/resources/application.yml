@@ -9,9 +9,9 @@ server:
     whitelabel:
       enabled: false
 logging:
-  file:
-    path: ${server.tomcat.basedir}/logs
-    name: ${server.tomcat.basedir}/logs/${spring.application.name}.log
+  #file:
+    #path: ${server.tomcat.basedir}/logs
+    #name: ${server.tomcat.basedir}/logs/${spring.application.name}.log
   level:
     root: warn
     com.kp: debug
@@ -24,9 +24,9 @@ spring:
   config:
     use-legacy-processing: true
   profiles:
-    active: prod
+    active: local
   application:
-    name: gansul-api
+    name: gansul
   lifecycle:
     timeout-per-shutdown-phase: 3s
   devtools:
@@ -41,6 +41,11 @@ spring:
     #url: jdbc:mysql://localhost:3306/sanhacrm?useSSL=false&serverTimezone=Asia/Seoul&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
     #username: root
     #password: dalli79!@#456
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    database: sql-server
   servlet:
     multipart:
       maxFileSize: 100MB
@@ -57,7 +62,7 @@ spring:
     password: 1234
 host:
   url: http://localhost:8090/
-  sender_mail: sa0408@kmac.co.kr
+  #sender_mail: sa0408@kmac.co.kr
 fileupload:
   path: /Users/dalli/upload_files/kidslala/
   url: http://localhost:8080/file/
