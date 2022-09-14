@@ -78,8 +78,8 @@ public class AlcoholDownController {
                 BaseSearch.Sort.builder().name("id").direction(
                         Sort.Direction.DESC).seq(0).build());
         final PageRequest pageRequest = PageUtil.pageRequest(searchCondition);
-        final Page<AlcoholDown> pagedApplys = alcoholDownService.findPagedAlcoholDowns(searchCondition, pageRequest);
-        return buildDataTable(pagedApplys, searchCondition.getPage());
+        final Page<AlcoholDown> pagedAlcoholDowns = alcoholDownService.findPagedAlcoholDowns(searchCondition, pageRequest);
+        return buildDataTable(pagedAlcoholDowns, searchCondition.getPage());
     }
 
     private DataTablesOutput<AlcoholDownDto.BriefResponse> buildDataTable (final Page<AlcoholDown> pagedAlcoholDown, final int pageNo) {

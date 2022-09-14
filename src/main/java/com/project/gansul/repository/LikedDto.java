@@ -16,7 +16,7 @@ public class LikedDto {
         @ApiModelProperty(value = "ID")
         private final Long id;
 
-        @ApiModelProperty(value = "게사글ID")
+        @ApiModelProperty(value = "게시글ID")
         private final Long postId;
 
         @ApiModelProperty(value = "클릭한 사람")

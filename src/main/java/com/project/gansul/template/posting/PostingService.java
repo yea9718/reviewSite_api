@@ -35,7 +35,7 @@ import static com.project.gansul.util.BaseResponseCode.BASE_ID_NOT_EXIST;
 @Service
 public class PostingService {
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-    private PostingRepository postingRepository;
+    private final PostingRepository postingRepository;
     private final ModelMapper modelMapper;
     private final ImmutableList<String> enums = ImmutableList.<String>builder().build();
     private final ImmutableList<String> tables = ImmutableList.<String>builder().build();
